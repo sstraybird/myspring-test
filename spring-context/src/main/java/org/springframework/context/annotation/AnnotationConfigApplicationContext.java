@@ -22,7 +22,7 @@ import java.util.function.Supplier;
 //import org.springframework.beans.factory.config.BeanDefinitionCustomizer;
 //import org.springframework.beans.factory.support.BeanNameGenerator;
 //import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-//import org.springframework.context.support.GenericApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
 //import org.springframework.core.env.ConfigurableEnvironment;
 //import org.springframework.core.metrics.StartupStep;
 //import org.springframework.lang.Nullable;
@@ -53,7 +53,7 @@ import java.util.function.Supplier;
  * @see ClassPathBeanDefinitionScanner
  * @see org.springframework.context.support.GenericXmlApplicationContext
  */
-public class AnnotationConfigApplicationContext {
+public class AnnotationConfigApplicationContext extends GenericApplicationContext implements AnnotationConfigRegistry {
 
 //    private final AnnotatedBeanDefinitionReader reader;
 //
