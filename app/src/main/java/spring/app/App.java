@@ -3,11 +3,16 @@
  */
 package spring.app;
 
+import org.springframework.beans.factory.support.AbstractBeanDefinition;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 
 public class App {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext configApplicationContext = new AnnotationConfigApplicationContext();
+        AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition().getBeanDefinition();
+        beanDefinition.setBeanClass(User.class);
     }
 }
