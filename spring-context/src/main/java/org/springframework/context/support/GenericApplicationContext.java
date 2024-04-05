@@ -23,14 +23,14 @@ import java.util.function.Supplier;
 
 //import org.springframework.beans.BeanUtils;
 //import org.springframework.beans.BeansException;
-//import org.springframework.beans.factory.BeanDefinitionStoreException;
+import org.springframework.beans.factory.BeanDefinitionStoreException;
 //import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 //import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
-//import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.config.BeanDefinition;
 //import org.springframework.beans.factory.config.BeanDefinitionCustomizer;
 //import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
-//import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 //import org.springframework.beans.factory.support.RootBeanDefinition;
 //import org.springframework.context.ApplicationContext;
 //import org.springframework.core.io.Resource;
@@ -94,7 +94,7 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry;
  */
 public class GenericApplicationContext extends AbstractApplicationContext implements BeanDefinitionRegistry {
 
-//	private final DefaultListableBeanFactory beanFactory;
+	private final DefaultListableBeanFactory beanFactory;
 //
 //	@Nullable
 //	private ResourceLoader resourceLoader;
@@ -104,14 +104,14 @@ public class GenericApplicationContext extends AbstractApplicationContext implem
 //	private final AtomicBoolean refreshed = new AtomicBoolean();
 //
 //
-//	/**
-//	 * Create a new GenericApplicationContext.
-//	 * @see #registerBeanDefinition
-//	 * @see #refresh
-//	 */
-//	public GenericApplicationContext() {
-//		this.beanFactory = new DefaultListableBeanFactory();
-//	}
+	/**
+	 * Create a new GenericApplicationContext.
+	 * @see #registerBeanDefinition
+	 * @see #refresh
+	 */
+	public GenericApplicationContext() {
+		this.beanFactory = new DefaultListableBeanFactory();
+	}
 //
 //	/**
 //	 * Create a new GenericApplicationContext with the given DefaultListableBeanFactory.
@@ -319,16 +319,16 @@ public class GenericApplicationContext extends AbstractApplicationContext implem
 //	}
 //
 //
-//	//---------------------------------------------------------------------
-//	// Implementation of BeanDefinitionRegistry
-//	//---------------------------------------------------------------------
-//
-//	@Override
-//	public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
-//			throws BeanDefinitionStoreException {
-//
-//		this.beanFactory.registerBeanDefinition(beanName, beanDefinition);
-//	}
+	//---------------------------------------------------------------------
+	// Implementation of BeanDefinitionRegistry
+	//---------------------------------------------------------------------
+
+	@Override
+	public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
+			throws BeanDefinitionStoreException {
+
+		this.beanFactory.registerBeanDefinition(beanName, beanDefinition);
+	}
 //
 //	@Override
 //	public void removeBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {

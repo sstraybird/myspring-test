@@ -16,9 +16,9 @@
 
 package org.springframework.beans.factory.support;
 
-//import org.springframework.beans.factory.BeanDefinitionStoreException;
+import org.springframework.beans.factory.BeanDefinitionStoreException;
 //import org.springframework.beans.factory.NoSuchBeanDefinitionException;
-//import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.core.AliasRegistry;
 
 /**
@@ -47,20 +47,20 @@ import org.springframework.core.AliasRegistry;
  */
 public interface BeanDefinitionRegistry extends AliasRegistry {
 
-//	/**
-//	 * Register a new bean definition with this registry.
-//	 * Must support RootBeanDefinition and ChildBeanDefinition.
-//	 * @param beanName the name of the bean instance to register
-//	 * @param beanDefinition definition of the bean instance to register
-//	 * @throws BeanDefinitionStoreException if the BeanDefinition is invalid
-//	 * @throws BeanDefinitionOverrideException if there is already a BeanDefinition
-//	 * for the specified bean name and we are not allowed to override it
-//	 * @see GenericBeanDefinition
-//	 * @see RootBeanDefinition
-//	 * @see ChildBeanDefinition
-//	 */
-//	void registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
-//			throws BeanDefinitionStoreException;
+	/**
+	 * Register a new bean definition with this registry.
+	 * Must support RootBeanDefinition and ChildBeanDefinition.
+	 * @param beanName the name of the bean instance to register
+	 * @param beanDefinition definition of the bean instance to register
+	 * @throws BeanDefinitionStoreException if the BeanDefinition is invalid
+	 * @throws BeanDefinitionOverrideException if there is already a BeanDefinition
+	 * for the specified bean name and we are not allowed to override it
+	 * @see GenericBeanDefinition
+	 * @see RootBeanDefinition
+	 * @see ChildBeanDefinition
+	 */
+	void registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
+			throws BeanDefinitionStoreException;
 //
 //	/**
 //	 * Remove the BeanDefinition for the given name.
