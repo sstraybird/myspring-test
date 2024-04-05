@@ -29,7 +29,6 @@ import org.springframework.beans.factory.config.*;
 //import org.springframework.core.metrics.StartupStep;
 import org.springframework.lang.Nullable;
 //import org.springframework.util.*;
-
 //import javax.inject.Provider;
 import java.io.*;
 import java.lang.annotation.Annotation;
@@ -43,6 +42,48 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
+
+//import javax.inject.Provider;
+
+import org.springframework.beans.BeansException;
+//import org.springframework.beans.TypeConverter;
+//import org.springframework.beans.factory.BeanCreationException;
+//import org.springframework.beans.factory.BeanCurrentlyInCreationException;
+import org.springframework.beans.factory.BeanDefinitionStoreException;
+import org.springframework.beans.factory.BeanFactory;
+//import org.springframework.beans.factory.BeanFactoryAware;
+//import org.springframework.beans.factory.BeanFactoryUtils;
+//import org.springframework.beans.factory.BeanNotOfRequiredTypeException;
+//import org.springframework.beans.factory.CannotLoadBeanClassException;
+//import org.springframework.beans.factory.FactoryBean;
+//import org.springframework.beans.factory.InjectionPoint;
+//import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+//import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
+//import org.springframework.beans.factory.ObjectFactory;
+//import org.springframework.beans.factory.ObjectProvider;
+//import org.springframework.beans.factory.SmartFactoryBean;
+//import org.springframework.beans.factory.SmartInitializingSingleton;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.beans.factory.config.BeanDefinition;
+//import org.springframework.beans.factory.config.BeanDefinitionHolder;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+//import org.springframework.beans.factory.config.DependencyDescriptor;
+//import org.springframework.beans.factory.config.NamedBeanHolder;
+//import org.springframework.core.OrderComparator;
+//import org.springframework.core.ResolvableType;
+//import org.springframework.core.annotation.MergedAnnotation;
+//import org.springframework.core.annotation.MergedAnnotations;
+//import org.springframework.core.annotation.MergedAnnotations.SearchStrategy;
+//import org.springframework.core.log.LogMessage;
+//import org.springframework.core.metrics.StartupStep;
+import org.springframework.lang.Nullable;
+import org.springframework.util.Assert;
+//import org.springframework.util.ClassUtils;
+//import org.springframework.util.CollectionUtils;
+//import org.springframework.util.CompositeIterator;
+//import org.springframework.util.ObjectUtils;
+//import org.springframework.util.StringUtils;
 
 /**
  * Spring's default implementation of the {@link ConfigurableListableBeanFactory}
@@ -935,8 +976,8 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
 			throws BeanDefinitionStoreException {
 
-//		Assert.hasText(beanName, "Bean name must not be empty");
-//		Assert.notNull(beanDefinition, "BeanDefinition must not be null");
+		Assert.hasText(beanName, "Bean name must not be empty");
+		Assert.notNull(beanDefinition, "BeanDefinition must not be null");
 //
 //		if (beanDefinition instanceof AbstractBeanDefinition) {
 //			try {
