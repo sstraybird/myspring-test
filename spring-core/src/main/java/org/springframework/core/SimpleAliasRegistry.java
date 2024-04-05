@@ -43,9 +43,9 @@ public class SimpleAliasRegistry implements AliasRegistry {
 
 //	/** Logger available to subclasses. */
 //	protected final Log logger = LogFactory.getLog(getClass());
-//
-//	/** Map from alias to canonical name. */
-//	private final Map<String, String> aliasMap = new ConcurrentHashMap<>(16);
+
+	/** Map from alias to canonical name. */
+	private final Map<String, String> aliasMap = new ConcurrentHashMap<>(16);
 //
 //
 //	@Override
@@ -200,23 +200,23 @@ public class SimpleAliasRegistry implements AliasRegistry {
 //		}
 //	}
 //
-//	/**
-//	 * Determine the raw name, resolving aliases to canonical names.
-//	 * @param name the user-specified name
-//	 * @return the transformed name
-//	 */
-//	public String canonicalName(String name) {
-//		String canonicalName = name;
-//		// Handle aliasing...
-//		String resolvedName;
-//		do {
-//			resolvedName = this.aliasMap.get(canonicalName);
-//			if (resolvedName != null) {
-//				canonicalName = resolvedName;
-//			}
-//		}
-//		while (resolvedName != null);
-//		return canonicalName;
-//	}
+	/**
+	 * Determine the raw name, resolving aliases to canonical names.
+	 * @param name the user-specified name
+	 * @return the transformed name
+	 */
+	public String canonicalName(String name) {
+		String canonicalName = name;
+		// Handle aliasing...
+		String resolvedName;
+		do {
+			resolvedName = this.aliasMap.get(canonicalName);
+			if (resolvedName != null) {
+				canonicalName = resolvedName;
+			}
+		}
+		while (resolvedName != null);
+		return canonicalName;
+	}
 
 }

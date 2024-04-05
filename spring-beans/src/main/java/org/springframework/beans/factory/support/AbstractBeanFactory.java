@@ -51,7 +51,7 @@ import org.springframework.beans.BeansException;
 //import org.springframework.beans.factory.BeanCurrentlyInCreationException;
 import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.beans.factory.BeanFactory;
-//import org.springframework.beans.factory.BeanFactoryUtils;
+import org.springframework.beans.factory.BeanFactoryUtils;
 //import org.springframework.beans.factory.BeanIsAbstractException;
 //import org.springframework.beans.factory.BeanIsNotAFactoryException;
 //import org.springframework.beans.factory.BeanNotOfRequiredTypeException;
@@ -203,10 +203,10 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 //	// Implementation of BeanFactory interface
 //	//---------------------------------------------------------------------
 //
-//	@Override
-//	public Object getBean(String name) throws BeansException {
-//		return doGetBean(name, null, null, false);
-//	}
+	@Override
+	public Object getBean(String name) throws BeansException {
+		return doGetBean(name, null, null, false);
+	}
 //
 //	@Override
 //	public <T> T getBean(String name, Class<T> requiredType) throws BeansException {
@@ -233,24 +233,24 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 //		return doGetBean(name, requiredType, args, false);
 //	}
 //
-//	/**
-//	 * Return an instance, which may be shared or independent, of the specified bean.
-//	 * @param name the name of the bean to retrieve
-//	 * @param requiredType the required type of the bean to retrieve
-//	 * @param args arguments to use when creating a bean instance using explicit arguments
-//	 * (only applied when creating a new instance as opposed to retrieving an existing one)
-//	 * @param typeCheckOnly whether the instance is obtained for a type check,
-//	 * not for actual use
-//	 * @return an instance of the bean
-//	 * @throws BeansException if the bean could not be created
-//	 */
-//	@SuppressWarnings("unchecked")
-//	protected <T> T doGetBean(
-//            String name, @Nullable Class<T> requiredType, @Nullable Object[] args, boolean typeCheckOnly)
-//			throws BeansException {
-//
-//		String beanName = transformedBeanName(name);
-//		Object beanInstance;
+	/**
+	 * Return an instance, which may be shared or independent, of the specified bean.
+	 * @param name the name of the bean to retrieve
+	 * @param requiredType the required type of the bean to retrieve
+	 * @param args arguments to use when creating a bean instance using explicit arguments
+	 * (only applied when creating a new instance as opposed to retrieving an existing one)
+	 * @param typeCheckOnly whether the instance is obtained for a type check,
+	 * not for actual use
+	 * @return an instance of the bean
+	 * @throws BeansException if the bean could not be created
+	 */
+	@SuppressWarnings("unchecked")
+	protected <T> T doGetBean(
+            String name, @Nullable Class<T> requiredType, @Nullable Object[] args, boolean typeCheckOnly)
+			throws BeansException {
+
+		String beanName = transformedBeanName(name);
+		Object beanInstance=null;
 //
 //		// Eagerly check singleton cache for manually registered singletons.
 //		Object sharedInstance = getSingleton(beanName);
@@ -395,12 +395,12 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 //			}
 //		}
 //
-//		return adaptBeanInstance(name, beanInstance, requiredType);
-//	}
+		return adaptBeanInstance(name, beanInstance, requiredType);
+	}
 //
-//	@SuppressWarnings("unchecked")
-//	<T> T adaptBeanInstance(String name, Object bean, @Nullable Class<?> requiredType) {
-//		// Check if required type matches the type of the actual bean instance.
+	@SuppressWarnings("unchecked")
+	<T> T adaptBeanInstance(String name, Object bean, @Nullable Class<?> requiredType) {
+		// Check if required type matches the type of the actual bean instance.
 //		if (requiredType != null && !requiredType.isInstance(bean)) {
 //			try {
 //				Object convertedBean = getTypeConverter().convertIfNecessary(bean, requiredType);
@@ -417,8 +417,8 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 //				throw new BeanNotOfRequiredTypeException(name, requiredType, bean.getClass());
 //			}
 //		}
-//		return (T) bean;
-//	}
+		return (T) bean;
+	}
 //
 //	@Override
 //	public boolean containsBean(String name) {
@@ -1248,15 +1248,15 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 //	// Implementation methods
 //	//---------------------------------------------------------------------
 //
-//	/**
-//	 * Return the bean name, stripping out the factory dereference prefix if necessary,
-//	 * and resolving aliases to canonical names.
-//	 * @param name the user-specified name
-//	 * @return the transformed bean name
-//	 */
-//	protected String transformedBeanName(String name) {
-//		return canonicalName(BeanFactoryUtils.transformedBeanName(name));
-//	}
+	/**
+	 * Return the bean name, stripping out the factory dereference prefix if necessary,
+	 * and resolving aliases to canonical names.
+	 * @param name the user-specified name
+	 * @return the transformed bean name
+	 */
+	protected String transformedBeanName(String name) {
+		return canonicalName(BeanFactoryUtils.transformedBeanName(name));
+	}
 //
 //	/**
 //	 * Determine the original bean name, resolving locally defined aliases to canonical names.

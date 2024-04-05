@@ -18,7 +18,7 @@ package org.springframework.context;
 
 //import org.springframework.beans.BeansException;
 //import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
-//import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 //import org.springframework.core.env.ConfigurableEnvironment;
 //import org.springframework.core.env.Environment;
 //import org.springframework.core.io.ProtocolResolver;
@@ -233,25 +233,25 @@ public interface ConfigurableApplicationContext extends ApplicationContext, Life
 //	 */
 //	boolean isActive();
 //
-//	/**
-//	 * Return the internal bean factory of this application context.
-//	 * Can be used to access specific functionality of the underlying factory.
-//	 * <p>Note: Do not use this to post-process the bean factory; singletons
-//	 * will already have been instantiated before. Use a BeanFactoryPostProcessor
-//	 * to intercept the BeanFactory setup process before beans get touched.
-//	 * <p>Generally, this internal factory will only be accessible while the context
-//	 * is active, that is, in-between {@link #refresh()} and {@link #close()}.
-//	 * The {@link #isActive()} flag can be used to check whether the context
-//	 * is in an appropriate state.
-//	 * @return the underlying bean factory
-//	 * @throws IllegalStateException if the context does not hold an internal
-//	 * bean factory (usually if {@link #refresh()} hasn't been called yet or
-//	 * if {@link #close()} has already been called)
-//	 * @see #isActive()
-//	 * @see #refresh()
-//	 * @see #close()
-//	 * @see #addBeanFactoryPostProcessor
-//	 */
-//	ConfigurableListableBeanFactory getBeanFactory() throws IllegalStateException;
+	/**
+	 * Return the internal bean factory of this application context.
+	 * Can be used to access specific functionality of the underlying factory.
+	 * <p>Note: Do not use this to post-process the bean factory; singletons
+	 * will already have been instantiated before. Use a BeanFactoryPostProcessor
+	 * to intercept the BeanFactory setup process before beans get touched.
+	 * <p>Generally, this internal factory will only be accessible while the context
+	 * is active, that is, in-between {@link #refresh()} and {@link #close()}.
+	 * The {@link #isActive()} flag can be used to check whether the context
+	 * is in an appropriate state.
+	 * @return the underlying bean factory
+	 * @throws IllegalStateException if the context does not hold an internal
+	 * bean factory (usually if {@link #refresh()} hasn't been called yet or
+	 * if {@link #close()} has already been called)
+	 * @see #isActive()
+	 * @see #refresh()
+	 * @see #close()
+	 * @see #addBeanFactoryPostProcessor
+	 */
+	ConfigurableListableBeanFactory getBeanFactory() throws IllegalStateException;
 
 }

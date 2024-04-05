@@ -28,7 +28,7 @@ import org.springframework.beans.factory.BeanDefinitionStoreException;
 //import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 //import org.springframework.beans.factory.config.BeanDefinitionCustomizer;
-//import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 //import org.springframework.beans.factory.support.RootBeanDefinition;
@@ -295,10 +295,10 @@ public class GenericApplicationContext extends AbstractApplicationContext implem
 //	 * Return the single internal BeanFactory held by this context
 //	 * (as ConfigurableListableBeanFactory).
 //	 */
-//	@Override
-//	public final ConfigurableListableBeanFactory getBeanFactory() {
-//		return this.beanFactory;
-//	}
+	@Override
+	public final ConfigurableListableBeanFactory getBeanFactory() {
+		return this.beanFactory;
+	}
 //
 //	/**
 //	 * Return the underlying bean factory of this context,

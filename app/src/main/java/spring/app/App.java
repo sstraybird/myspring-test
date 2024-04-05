@@ -15,5 +15,6 @@ public class App {
         AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition().getBeanDefinition();
         beanDefinition.setBeanClass(User.class);
         context.registerBeanDefinition("user",beanDefinition);
+        context.getBean("user");
     }
 }

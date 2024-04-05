@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/spring-beans" />
             <option value="$PROJECT_DIR$/spring-context" />
             <option value="$PROJECT_DIR$/spring-core" />
+            <option value="$PROJECT_DIR$/spring-jcl" />
             <option value="$PROJECT_DIR$/utilities" />
           </set>
         </option>

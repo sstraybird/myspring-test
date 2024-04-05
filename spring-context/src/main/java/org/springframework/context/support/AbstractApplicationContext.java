@@ -31,14 +31,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 //import org.apache.commons.logging.Log;
 //import org.apache.commons.logging.LogFactory;
 //
-//import org.springframework.beans.BeansException;
+import org.springframework.beans.BeansException;
 //import org.springframework.beans.CachedIntrospectionResults;
 import org.springframework.beans.factory.BeanFactory;
 //import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 //import org.springframework.beans.factory.ObjectProvider;
 //import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 //import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
-//import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 //import org.springframework.beans.support.ResourceEditorRegistrar;
 import org.springframework.context.ApplicationContext;
 //import org.springframework.context.ApplicationContextAware;
@@ -1143,16 +1143,16 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 //		}
 //	}
 //
-//
-//	//---------------------------------------------------------------------
-//	// Implementation of BeanFactory interface
-//	//---------------------------------------------------------------------
-//
-//	@Override
-//	public Object getBean(String name) throws BeansException {
+
+	//---------------------------------------------------------------------
+	// Implementation of BeanFactory interface
+	//---------------------------------------------------------------------
+
+	@Override
+	public Object getBean(String name) throws BeansException {
 //		assertBeanFactoryActive();
-//		return getBeanFactory().getBean(name);
-//	}
+		return getBeanFactory().getBean(name);
+	}
 //
 //	@Override
 //	public <T> T getBean(String name, Class<T> requiredType) throws BeansException {
@@ -1457,21 +1457,21 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 //	 */
 //	protected abstract void closeBeanFactory();
 //
-//	/**
-//	 * Subclasses must return their internal bean factory here. They should implement the
-//	 * lookup efficiently, so that it can be called repeatedly without a performance penalty.
-//	 * <p>Note: Subclasses should check whether the context is still active before
-//	 * returning the internal bean factory. The internal factory should generally be
-//	 * considered unavailable once the context has been closed.
-//	 * @return this application context's internal bean factory (never {@code null})
-//	 * @throws IllegalStateException if the context does not hold an internal bean factory yet
-//	 * (usually if {@link #refresh()} has never been called) or if the context has been
-//	 * closed already
-//	 * @see #refreshBeanFactory()
-//	 * @see #closeBeanFactory()
-//	 */
-//	@Override
-//	public abstract ConfigurableListableBeanFactory getBeanFactory() throws IllegalStateException;
+	/**
+	 * Subclasses must return their internal bean factory here. They should implement the
+	 * lookup efficiently, so that it can be called repeatedly without a performance penalty.
+	 * <p>Note: Subclasses should check whether the context is still active before
+	 * returning the internal bean factory. The internal factory should generally be
+	 * considered unavailable once the context has been closed.
+	 * @return this application context's internal bean factory (never {@code null})
+	 * @throws IllegalStateException if the context does not hold an internal bean factory yet
+	 * (usually if {@link #refresh()} has never been called) or if the context has been
+	 * closed already
+	 * @see #refreshBeanFactory()
+	 * @see #closeBeanFactory()
+	 */
+	@Override
+	public abstract ConfigurableListableBeanFactory getBeanFactory() throws IllegalStateException;
 //
 //
 //	/**
