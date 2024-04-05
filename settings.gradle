@@ -12,4 +12,5 @@ include('app', 'list', 'utilities')
 include 'spring-context'
 include 'spring-beans'
 include 'spring-core'
+include 'spring-jcl'
 
