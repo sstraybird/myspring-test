@@ -32,7 +32,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 //import org.springframework.core.ResolvableType;
 //import org.springframework.core.io.DescriptiveResource;
 //import org.springframework.core.io.Resource;
-//import org.springframework.lang.Nullable;
+import org.springframework.lang.Nullable;
 //import org.springframework.util.Assert;
 //import org.springframework.util.ClassUtils;
 //import org.springframework.util.ObjectUtils;
@@ -138,8 +138,8 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 //	public static final String INFER_METHOD = "(inferred)";
 //
 //
-//	@Nullable
-//	private volatile Object beanClass;
+	@Nullable
+	private volatile Object beanClass;
 //
 //	@Nullable
 //	private String scope = SCOPE_DEFAULT;
@@ -401,13 +401,13 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 //		}
 //	}
 //
-//	/**
-//	 * Specify the class for this bean.
-//	 * @see #setBeanClassName(String)
-//	 */
-//	public void setBeanClass(@Nullable Class<?> beanClass) {
-//		this.beanClass = beanClass;
-//	}
+	/**
+	 * Specify the class for this bean.
+	 * @see #setBeanClassName(String)
+	 */
+	public void setBeanClass(@Nullable Class<?> beanClass) {
+		this.beanClass = beanClass;
+	}
 //
 //	/**
 //	 * Return the specified class of the bean definition (assuming it is resolved already).

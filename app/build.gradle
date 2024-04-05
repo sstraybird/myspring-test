@@ -11,6 +11,7 @@ dependencies {
     implementation project(':utilities')
     implementation project(':spring-context')
     implementation project(':spring-beans')
+    implementation project(':spring-core')
 }
 
 application {
