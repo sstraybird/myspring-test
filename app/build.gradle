@@ -10,7 +10,7 @@ dependencies {
     implementation 'org.apache.commons:commons-text'
     implementation project(':utilities')
     implementation project(':spring-context')
-
+    implementation project(':spring-beans')
 }
 
 application {
